@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tool Details | Cyber Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/terminal.css">
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">⚡ CYBER LAB</h2>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="tools.html" class="active">Tools</a>
+      <a href="labs.html">Labs</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <h1 id="toolName">Tool</h1>
+
+    <div class="card tool-detail-card">
+      <p id="toolDesc"></p>
+
+      <span class="badge" id="toolDifficulty"></span>
+
+      <div style="margin-top:20px;">
+        <a href="tools.html" class="btn outline">← Back</a>
+        <button class="btn" onclick="toggleTerminal()">Launch Terminal</button>
+      </div>
+    </div>
+
+    <!-- TERMINAL SECTION -->
+    <div class="card" style="margin-top:20px;">
+      <h3>Interactive Terminal</h3>
+      <div id="terminal-container" style="display:none;margin-top:15px;"></div>
+    </div>
+
+  </main>
+
+  <!-- JS (ORDER IS CRITICAL) -->
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/data/tools.js"></script>
+  <script src="assets/js/terminal/commands.js"></script>
+  <script src="assets/js/terminal/terminal.js"></script>
+
+  <!-- TOOL DETAIL LOGIC -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    const tool = tools.find(t => t.id == id);
+
+    if (tool) {
+      document.getElementById("toolName").textContent = tool.name;
+      document.getElementById("toolDesc").textContent = tool.description;
+      document.getElementById("toolDifficulty").textContent = tool.difficulty.toUpperCase();
+
+      markToolViewed(tool.name);
+    }
+  </script>
+
+</body>
+</html>

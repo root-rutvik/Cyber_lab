@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/boot.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00ffcc">
+</head>
+
+<body>
+
+  <!-- BOOT SCREEN -->
+  <div id="boot" class="boot-screen"></div>
+
+  <!-- HERO -->
+  <section class="hero clean-hero">
+    <div class="hero-inner fade-in">
+      <h1 class="hero-title glow">CYBER LAB</h1>
+
+      <p class="hero-tagline">Train • Break • Secure</p>
+
+      <p class="hero-desc" id="welcomeText">
+        Initializing user profile...
+      </p>
+
+      <div class="hero-actions">
+        <a href="dashboard.html" class="btn">Enter Platform</a>
+        <a href="labs.html" class="btn outline">Start Labs</a>
+        <button class="btn outline" onclick="toggleTheme()">Toggle Theme</button>
+      </div>
+
+      <p class="muted" id="quickStat"></p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features clean-features">
+    <div class="features-inner">
+      <div class="feature-card">
+        <h3>🛠 Tools</h3>
+        <p>Explore real-world cyber-security tools.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🧪 Labs</h3>
+        <p>CTF-style labs to practice real skills.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>🏆 Progress</h3>
+        <p>Track XP, achievements, and rank.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© Cyber Lab • Educational Cyber Security Platform</p>
+  </footer>
+
+  <!-- STATE -->
+  <script src="assets/js/state.js"></script>
+
+  <script>
+    const text = document.getElementById("welcomeText");
+    const stat = document.getElementById("quickStat");
+
+    if (window.AppState) {
+      text.textContent =
+        `Welcome back, ${AppState.user.username} • Rank: ${AppState.user.rank}`;
+
+      stat.textContent =
+        `Tools viewed: ${AppState.toolsViewed.length} • Labs completed: ${AppState.labsCompleted.length}`;
+    } else {
+      text.textContent =
+        "A modern cyber-security learning platform focused on learning by doing.";
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        window.location.href = "dashboard.html";
+      }
+    });
+  </script>
+
+  <!-- THEME -->
+  <script src="assets/js/theme.js"></script>
+
+  <!-- BOOT -->
+  <script src="assets/js/boot.js"></script>
+
+  <!-- SERVICE WORKER -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+
+</body>
+</html>

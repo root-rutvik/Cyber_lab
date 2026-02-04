@@ -1,0 +1,188 @@
+/* =========================
+   BUTTONS (CYBER STYLE)
+========================= */
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 1px;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,204,0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.btn:hover::before {
+  transform: translateX(100%);
+}
+
+.btn:hover {
+  color: var(--bg);
+  background: var(--accent);
+  box-shadow: 0 0 20px rgba(0,255,204,0.6);
+}
+
+/* =========================
+   CARD (ADVANCED CYBER)
+========================= */
+
+.card {
+  position: relative;
+  background: rgba(2, 11, 28, 0.9);
+  border: 1px solid rgba(0,255,204,0.4);
+  border-radius: 12px;
+  padding: 30px;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* OUTER GLOW */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 12px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,204,0.35),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* SCAN LINE */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0,255,204,0.08),
+    transparent
+  );
+  transform: translateY(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+/* HOVER EFFECT */
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--accent);
+  box-shadow:
+    0 0 25px rgba(0,255,204,0.35),
+    inset 0 0 15px rgba(0,255,204,0.15);
+}
+
+.card:hover::before {
+  transform: translateY(100%);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* =========================
+   PULSE ANIMATION (OPTIONAL)
+========================= */
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0,255,204,0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0,255,204,0.6);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0,255,204,0.3);
+  }
+}
+
+.card.pulse {
+  animation: pulse 2.5s infinite;
+}
+
+/* =========================
+   BADGES (GLOWING)
+========================= */
+
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  border-radius: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
+}
+
+.badge.easy {
+  color: #00ff00;
+  background: rgba(0,255,0,0.15);
+  box-shadow: 0 0 10px rgba(0,255,0,0.4);
+}
+
+.badge.medium {
+  color: orange;
+  background: rgba(255,165,0,0.15);
+  box-shadow: 0 0 10px rgba(255,165,0,0.4);
+}
+
+.badge.hard {
+  color: red;
+  background: rgba(255,0,0,0.15);
+  box-shadow: 0 0 10px rgba(255,0,0,0.4);
+}
+
+/* =========================
+   TEXT GLOW (UTILITY)
+========================= */
+
+.glow {
+  text-shadow:
+    0 0 5px rgba(0,255,204,0.6),
+    0 0 10px rgba(0,255,204,0.4);
+}
+
+/* =========================
+   FADE-IN ANIMATION
+========================= */
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

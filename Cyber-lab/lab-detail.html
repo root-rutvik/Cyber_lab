@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab | Cyber Lab</title>
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <h2 class="logo">⚡ CYBER LAB</h2>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="labs.html" class="active">Labs</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <h1 id="labName">Loading...</h1>
+
+    <div class="card">
+      <p id="labDesc"></p>
+
+      <div id="labMeta"></div>
+
+      <br>
+      <button class="btn" id="completeLabBtn">Mark as Completed</button>
+    </div>
+  </main>
+
+  <script src="assets/js/data/labs.js"></script>
+  <script src="assets/js/labs/lab-detail.js"></script>
+</body>
+</html>

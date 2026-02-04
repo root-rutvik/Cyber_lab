@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | Cyber Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">⚡ CYBER LAB</h2>
+    <nav>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="tools.html">Tools</a>
+      <a href="labs.html">Labs</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <h1>Dashboard</h1>
+
+    <!-- STATS -->
+    <section class="grid dashboard-stats">
+      <div class="card stat-card">
+        <span class="stat-label">XP</span>
+        <span class="stat-value" id="dashXP"></span>
+      </div>
+
+      <div class="card stat-card">
+        <span class="stat-label">Rank</span>
+        <span class="stat-value" id="dashRank"></span>
+      </div>
+
+      <div class="card stat-card">
+        <span class="stat-label">Tools Viewed</span>
+        <span class="stat-value" id="dashTools"></span>
+      </div>
+
+      <div class="card stat-card">
+        <span class="stat-label">Labs Completed</span>
+        <span class="stat-value" id="dashLabs"></span>
+      </div>
+    </section>
+
+    <!-- ACTIVITY -->
+    <h2>Recent Activity</h2>
+    <div class="card">
+      <ul id="activityList"></ul>
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="assets/js/state.js"></script>
+
+  <script>
+    // Stats
+    document.getElementById("dashXP").textContent = AppState.user.xp;
+    document.getElementById("dashRank").textContent = AppState.user.rank;
+    document.getElementById("dashTools").textContent = AppState.toolsViewed.length;
+    document.getElementById("dashLabs").textContent = AppState.labsCompleted.length;
+
+    // Activity log
+    const list = document.getElementById("activityList");
+
+    if (AppState.activityLog.length === 0) {
+      list.innerHTML = "<li>No activity yet</li>";
+    } else {
+      AppState.activityLog.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

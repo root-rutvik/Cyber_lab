@@ -1,0 +1,32 @@
+.terminal {
+  background: #000;
+  color: #00ffcc;
+  font-family: "JetBrains Mono", monospace;
+  padding: 20px;
+  border-radius: 10px;
+  height: 400px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 20px rgba(0,255,204,0.2);
+}
+
+.terminal-output div {
+  margin-bottom: 6px;
+}
+
+.terminal-input {
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  margin-right: 8px;
+}
+
+#terminalInput {
+  background: none;
+  border: none;
+  outline: none;
+  color: #00ffcc;
+  width: 100%;
+  font-family: inherit;
+}

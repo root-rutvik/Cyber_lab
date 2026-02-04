@@ -1,0 +1,38 @@
+/* MAIN LAYOUT */
+body {
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: var(--panel);
+  padding: 20px;
+}
+
+.logo {
+  color: var(--accent);
+  margin-bottom: 30px;
+}
+
+/* NAV */
+.sidebar nav a {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* MAIN AREA */
+.main {
+  flex: 1;
+  padding: 30px;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile | Cyber Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">⚡ CYBER LAB</h2>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="tools.html">Tools</a>
+      <a href="labs.html">Labs</a>
+      <a href="profile.html" class="active">Profile</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <h1>Profile</h1>
+
+    <!-- PROFILE STATS -->
+    <section class="grid dashboard-stats">
+      <div class="card stat-card">
+        <span class="stat-label">Username</span>
+        <span class="stat-value" id="username"></span>
+      </div>
+
+      <div class="card stat-card">
+        <span class="stat-label">XP</span>
+        <span class="stat-value" id="xp"></span>
+      </div>
+
+      <div class="card stat-card">
+        <span class="stat-label">Rank</span>
+        <span class="stat-value" id="rank"></span>
+      </div>
+
+      <div class="card stat-card">
+        <span class="stat-label">Tools Viewed</span>
+        <span class="stat-value" id="toolsCount"></span>
+      </div>
+
+      <div class="card stat-card">
+        <span class="stat-label">Labs Completed</span>
+        <span class="stat-value" id="labsCount"></span>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <h2>Achievements</h2>
+    <div class="card">
+      <ul id="achievementsList"></ul>
+    </div>
+
+    <!-- ACTIVITY -->
+    <h2>Activity</h2>
+    <div class="card">
+      <ul id="profileActivity"></ul>
+    </div>
+  </main>
+
+  <!-- JS -->
+  <script src="assets/js/state.js"></script>
+
+  <script>
+    // Profile stats
+    document.getElementById("username").textContent = AppState.user.username;
+    document.getElementById("xp").textContent = AppState.user.xp;
+    document.getElementById("rank").textContent = AppState.user.rank;
+    document.getElementById("toolsCount").textContent = AppState.toolsViewed.length;
+    document.getElementById("labsCount").textContent = AppState.labsCompleted.length;
+
+    // Achievements
+    const achList = document.getElementById("achievementsList");
+    if (AppState.achievements.length === 0) {
+      achList.innerHTML = "<li>No achievements yet</li>";
+    } else {
+      AppState.achievements.forEach(a => {
+        const li = document.createElement("li");
+        li.textContent = "🏆 " + a;
+        achList.appendChild(li);
+      });
+    }
+
+    // Activity
+    const actList = document.getElementById("profileActivity");
+    if (AppState.activityLog.length === 0) {
+      actList.innerHTML = "<li>No activity yet</li>";
+    } else {
+      AppState.activityLog.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        actList.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

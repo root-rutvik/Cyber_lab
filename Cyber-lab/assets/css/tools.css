@@ -1,0 +1,26 @@
+.search {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: var(--panel);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  outline: none;
+}
+
+.search::placeholder {
+  color: var(--muted);
+}
+
+.tool-title {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.tool-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}

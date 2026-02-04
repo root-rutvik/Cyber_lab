@@ -1,0 +1,269 @@
+/* =========================
+   ROOT VARIABLES (DARK THEME)
+========================= */
+
+:root {
+  --bg: #020617;
+  --panel: #020617;
+  --card: rgba(2, 11, 28, 0.95);
+
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+
+  --accent: #00ffcc;
+  --accent-soft: rgba(0,255,204,0.15);
+
+  --danger: #ff4d4d;
+  --warning: #f59e0b;
+  --success: #22c55e;
+
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+/* =========================
+   RESET
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  line-height: 1.6;
+  display: flex;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 30px 0 15px;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* =========================
+   LAYOUT HELPERS
+========================= */
+
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to bottom, #020617, #000);
+  border-right: 1px solid rgba(0,255,204,0.15);
+  padding: 25px 20px;
+}
+
+.sidebar .logo {
+  color: var(--accent);
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(0,255,204,0.6);
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  color: var(--muted);
+  transition: background var(--transition), color var(--transition);
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* =========================
+   HERO / LANDING
+========================= */
+
+.clean-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, rgba(0,255,204,0.18), transparent 60%),
+    linear-gradient(to bottom, #020617, #000);
+}
+
+.hero-inner {
+  max-width: 700px;
+  padding: 40px 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-tagline {
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.hero-desc {
+  color: var(--muted);
+  margin-bottom: 35px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.clean-features {
+  padding: 90px 20px;
+  background: #020617;
+}
+
+.features-inner {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 30px;
+  border: 1px solid rgba(0,255,204,0.25);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0,255,204,0.25);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 25px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid rgba(0,255,204,0.2);
+}
+
+/* =========================
+   UTILITIES
+========================= */
+
+.glow {
+  text-shadow: 0 0 10px rgba(0,255,204,0.6);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,255,204,0.4);
+  border-radius: 4px;
+}
+
+/* =========================
+   NEON THEME
+========================= */
+
+body.neon {
+  --bg: #000000;
+  --panel: #000000;
+  --card: rgba(0,0,0,0.85);
+
+  --text: #eaffff;
+  --muted: #7dd3fc;
+
+  --accent: #00ffff;
+  --accent-soft: rgba(0,255,255,0.2);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,255,204,0.15);
+  }
+}

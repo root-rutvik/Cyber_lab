@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tools | Cyber Lab</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">⚡ CYBER LAB</h2>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="tools.html" class="active">Tools</a>
+      <a href="labs.html">Labs</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <h1>Cyber Security Tools</h1>
+
+    <!-- SEARCH INPUT -->
+    <input
+      type="text"
+      id="search"
+      class="search"
+      placeholder="Search tools (name / category)"
+    >
+
+    <!-- TOOLS GRID (IMPORTANT ID) -->
+    <section id="toolsGrid" class="grid"></section>
+  </main>
+
+  <!-- JS (ORDER MATTERS) -->
+  <script src="assets/js/data/tools.js"></script>
+  <script src="assets/js/tools/tools-filter.js"></script>
+</body>
+</html>
